@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#d487a6">
+  <meta name="description" content="Invitación interactiva al Baby Shower de Almudena">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Baby Shower de Almudena</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="petals" class="petals" aria-hidden="true"></div>
+  <audio id="music" src="assets/musica.mp3" preload="auto" loop></audio>
+
+  <!-- PORTADA / CARTA CERRADA -->
+  <section id="cover" class="cover-screen">
+    <div class="cover-bg"></div>
+    <div class="cover-overlay"></div>
+    <span class="floating deco d1">🌸</span>
+    <span class="floating deco d2"><i class="bfly lila"></i></span>
+    <span class="floating deco d3">🎀</span>
+    <span class="floating deco d4">🌷</span>
+    <span class="floating deco d5">✨</span>
+
+    <div class="cover-card">
+      <p class="tiny-title">UNA INVITACIÓN MUY ESPECIAL</p>
+      <img src="assets/conejita-recorte.png" alt="Conejita decorativa" class="bunny-top">
+      <h1>Baby Shower <span>de Almudena</span></h1>
+      <p class="cover-text">
+        Con inmensa alegría queremos invitarte a celebrar la dulce llegada de <strong>Almudena</strong>.
+        Abrimos esta carta con mucho cariño para compartir contigo un momento que recordaremos siempre.
+      </p>
+
+      <div id="envelope" class="envelope" aria-label="Sobre de invitación cerrado">
+        <div class="env-back"></div>
+        <div class="letter-card">
+          <span>Con mucho cariño</span>
+          <strong>Almudena</strong>
+          <small>Te esperamos con amor</small>
+        </div>
+        <div class="env-front"></div>
+        <div class="env-flap"></div>
+        <button id="openEnvelope" class="seal" aria-label="Abrir sobre">💌</button>
+      </div>
+
+      <p id="coverHint" class="cover-hint">Toca el sello para abrir la carta</p>
+      <button id="enterBtn" class="main-btn hidden">Ver invitación ✨</button>
+    </div>
+  </section>
+
+  <!-- EXPERIENCIA -->
+  <main id="invitationApp" class="app hidden" data-scene="intro" aria-hidden="true">
+    <div class="scene-overlay"></div>
+    <div class="shell">
+      <header class="topbar">
+        <button id="prevTop" class="circle-btn" aria-label="Regresar">←</button>
+        <div class="brand-block">
+          <small>Baby Shower de</small>
+          <strong>Almudena</strong>
+        </div>
+        <div id="counter" class="counter">1 / 6</div>
+        <button id="musicToggle" class="circle-btn" aria-label="Pausar o reproducir música">⏸</button>
+      </header>
+
+      <div class="progress"><span id="progressBar"></span></div>
+
+      <!-- 1 -->
+      <section class="slide active" data-scene="intro">
+        <div class="card-panel panel-intro">
+          <div class="corner c1">🌸</div>
+          <div class="corner c2"><i class="bfly"></i></div>
+          <p class="script">Con mucha ilusión</p>
+          <h2>Queremos invitarte</h2>
+          <p class="body-text">
+            Acompáñanos a celebrar el <strong>Baby Shower de Almudena</strong>, una noche llena de
+            ternura, alegría y detalles bonitos para compartir en familia esta espera maravillosa.
+          </p>
+
+          <button id="specialMessageBtn" class="soft-chip heart-chip"><span class="big-heart">💗</span><span>Toca el corazón</span></button>
+          <div id="specialMessage" class="hidden-message" data-text="Tu presencia hará este día todavía más hermoso. Queremos guardar contigo recuerdos lindos y compartir la emoción por la llegada de Almudena."></div>
+        </div>
+        <div class="action-row single">
+          <button class="main-btn next-btn">Continuar →</button>
+        </div>
+      </section>
+
+      <!-- 2 -->
+      <section class="slide" data-scene="love">
+        <div class="card-panel panel-love">
+          <div class="corner c1">🎀</div>
+          <div class="corner c3">🌷</div>
+          <p class="script">Una invitación con cariño</p>
+          <h2>Queremos que nos acompañes</h2>
+          <p class="body-text">
+            Estamos preparando con mucho amor una noche muy especial para celebrar la dulce llegada de Almudena.
+            Queremos recibirla rodeada de las personas que más la quieren, y tú eres una de ellas.
+          </p>
+
+          <div id="ribbonCard" class="ribbon-card" role="button" tabindex="0" aria-label="Desatar el lazo">
+            <p class="rc-msg">Queremos compartir contigo esta fecha tan importante. Tu cariño, tus buenos deseos y tu compañía harán que esta celebración sea aún más dulce y memorable.</p>
+            <div class="rc-wrap" aria-hidden="true"><i class="rc-h"></i><i class="rc-v"></i><span class="rc-bow">🎀</span></div>
+          </div>
+          <small id="ribbonStatus" class="ribbon-status">Toca el lazo para desatarlo</small>
+        </div>
+        <div class="action-row">
+          <button class="second-btn prev-btn">← Regresar</button>
+          <button class="main-btn next-btn">Siguiente →</button>
+        </div>
+      </section>
+
+      <!-- 3 -->
+      <section class="slide" data-scene="details">
+        <div class="card-panel panel-details">
+          <div class="corner c1">✿</div>
+          <div class="corner c2">🎀</div>
+          <p class="script">Detalles del evento</p>
+          <h2>Guarda la fecha</h2>
+
+          <div class="countdown-card">
+            <small>Falta poco para celebrar</small>
+            <div class="countdown-grid">
+              <div><b id="days">--</b><span>DÍAS</span></div>
+              <div><b id="hours">--</b><span>HORAS</span></div>
+              <div><b id="minutes">--</b><span>MIN</span></div>
+              <div><b id="seconds">--</b><span>SEG</span></div>
+            </div>
+          </div>
+
+          <div class="details-grid">
+            <button class="detail-card" data-value="14 de noviembre de 2026">
+              <span class="icon-wrap">📅</span>
+              <span class="detail-copy"><b>Fecha</b><small>Toca para ver el dato</small></span>
+            </button>
+            <button class="detail-card" data-value="7:00 p. m. (19:00)">
+              <span class="icon-wrap">🕖</span>
+              <span class="detail-copy"><b>Hora</b><small>Toca para ver el dato</small></span>
+            </button>
+            <button class="detail-card" data-value="Urb. Posada del Sol 2da etapa, H3 lote 03 - Menorca">
+              <span class="icon-wrap">📍</span>
+              <span class="detail-copy"><b>Lugar</b><small>Toca para ver el dato</small></span>
+            </button>
+          </div>
+
+          <a href="https://maps.app.goo.gl/9YZgKyhPcriFddeP9?g_st=iw" target="_blank" rel="noopener" class="main-btn full-btn">📍 Abrir ubicación en Google Maps</a>
+          <button type="button" class="second-btn full-btn cal-btn">📅 Agregar al calendario</button>
+        </div>
+        <div class="action-row">
+          <button class="second-btn prev-btn">← Regresar</button>
+          <button class="main-btn next-btn">Siguiente →</button>
+        </div>
+      </section>
+
+      <!-- 4 -->
+      <section class="slide" data-scene="wishes">
+        <div class="card-panel panel-wishes">
+          <div class="corner c1"><i class="bfly lila"></i></div>
+          <div class="corner c3">🌸</div>
+          <p class="script">Un deseo para Almudena</p>
+          <h2>Elige una palabra bonita</h2>
+          <p class="body-text">
+            Cada palabra guarda un deseo especial para la vida de Almudena. Toca una y aparecerá tu mensaje.
+          </p>
+
+          <div class="wish-grid">
+            <button data-wish="Que Almudena crezca rodeada de muchísimo amor.">Amor</button>
+            <button data-wish="Que su vida esté llena de alegría y sonrisas.">Alegría</button>
+            <button data-wish="Que nunca le falten abrazos, ternura y cuidado.">Ternura</button>
+            <button data-wish="Que todos sus sueños florezcan con felicidad.">Sueños</button>
+          </div>
+
+          <div id="wishCount" class="wish-count">0 / 4 deseos guardados</div>
+          <div id="wishOutput" class="wish-output">Selecciona una palabra ✨</div>
+          <div id="wishDone" class="hidden-message special-box">💗 ¡Completaste los cuatro deseos! Todos juntos forman el mejor regalo para Almudena.</div>
+
+          <div class="summary-box">
+            <strong>Baby Shower de Almudena</strong>
+            <span>📅 14 de noviembre de 2026</span>
+            <span>🕖 7:00 p. m.</span>
+            <span>📍 Urb. Posada del Sol 2da etapa, H3 lote 03 - Menorca</span>
+          </div>
+        </div>
+        <div class="action-row">
+          <button class="second-btn prev-btn">← Regresar</button>
+          <button class="main-btn next-btn">Siguiente →</button>
+        </div>
+      </section>
+
+      <!-- 5 -->
+      <section class="slide" data-scene="confirm">
+        <div class="card-panel panel-confirm">
+          <div class="corner c1">🎀</div>
+          <div class="corner c2">🌸</div>
+          <img src="assets/conejita-recorte.png" alt="Conejita decorativa" class="mini-bunny">
+          <p class="script">Nos encantará verte</p>
+          <h2>¿Nos acompañas?</h2>
+          <p class="body-text">
+            Tu presencia será nuestro mejor regalo. Gracias por formar parte de este momento tan especial.
+            Nos hará muy felices compartir contigo la dulce llegada de Almudena.
+          </p>
+
+          <button id="giftBtn" class="gift-box" aria-label="Abrir regalo">🎁</button>
+          <div id="giftMessage" class="hidden-message special-box">
+            Tu presencia será el detalle más bonito de esta celebración. ¡Gracias por acompañarnos!
+          </div>
+
+          <div class="rsvp-form">
+            <label for="guestName">TU NOMBRE</label>
+            <input id="guestName" type="text" placeholder="Escribe tu nombre" autocomplete="name" maxlength="40">
+            <div class="stepper"><span>Personas que asistirán</span><div><button type="button" id="minusGuest" aria-label="Menos personas">−</button><b id="guestCount">1</b><button type="button" id="plusGuest" aria-label="Más personas">+</button></div></div>
+            <div id="extraNames" class="extra-names"></div>
+          </div>
+          <button id="confirmBtn" class="main-btn full-btn space-top">💌 Confirmar asistencia</button>
+          <a href="https://maps.app.goo.gl/9YZgKyhPcriFddeP9?g_st=iw" target="_blank" rel="noopener" class="second-btn full-btn">🗺️ Ver ubicación</a>
+        </div>
+        <div class="action-row single-left">
+          <button class="second-btn prev-btn">← Regresar</button>
+        </div>
+      </section>
+
+      <!-- 6 -->
+      <section class="slide" data-scene="thanks">
+        <div class="card-panel panel-thanks">
+          <img src="assets/conejita-recorte.png" alt="Conejita decorativa" class="thanks-bunny">
+          <p class="script">Con todo nuestro cariño</p>
+          <h2 id="thanksTitle">¡Gracias por acompañarnos!</h2>
+          <p class="body-text thank-copy">
+            Nos alegra muchísimo saber que compartirás este día con nosotros. Tu presencia hará aún más especial
+            la celebración por la llegada de Almudena. <strong>Te esperamos con mucha ilusión.</strong>
+          </p>
+          <div class="thank-badge">💗 Asistencia confirmada</div>
+          <p class="body-text wa-note">Tu confirmación se abre en WhatsApp para que nos llegue directo. Si no se abrió, toca el botón verde.</p>
+          <a id="waBtn" href="#" target="_blank" rel="noopener" class="main-btn full-btn wa-btn">💬 Abrir WhatsApp otra vez</a>
+          <a href="https://maps.app.goo.gl/9YZgKyhPcriFddeP9?g_st=iw" target="_blank" rel="noopener" class="main-btn full-btn">📍 Abrir ubicación</a>
+          <button type="button" class="second-btn full-btn cal-btn">📅 Agregar al calendario</button>
+          <button type="button" id="shareBtn" class="second-btn full-btn">💌 Compartir invitación</button>
+          <button id="restartBtn" class="second-btn full-btn">↺ Ver la invitación otra vez</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
